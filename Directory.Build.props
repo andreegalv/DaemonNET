@@ -1,0 +1,21 @@
+<Project>
+    <!-- General -->
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>12.0</LangVersion>
+        <Nullable>enable</Nullable>
+	<ImplicitUsings>enable</ImplicitUsings>
+        <Features>strict</Features>
+        <InvariantGlobalization>false</InvariantGlobalization>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+        <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+        <ReportAnalyzer>true</ReportAnalyzer>
+        <AnalysisMode>All</AnalysisMode>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    </PropertyGroup>
+</Project>

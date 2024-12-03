@@ -1,0 +1,7 @@
+{
+	"Name": "DaemonNET",
+	"Cron": "0/1 9-19 * * 1-5",
+	"RouteCallback": {
+		"Host": "http://localhost:3000/ExecuteService"
+	}
+}
