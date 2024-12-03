@@ -12,6 +12,6 @@
 }
 ```
 
-"Cron": Cron expression (Ejecuta cada 1 minuto, entre las 00:09 AM y las 19:00 PM, entre los días Lunes y Viernes)
+"Cron": Cron expression (Ejecuta cada 1 minuto, entre las 00:90 AM y las 19:00 PM, entre los días Lunes y Viernes)
 
 "RouteCallback": URL que llamara mediante HttpClient, envia un parametro en Query "execution=yyyy-MM-ddTHH:mm:ss"
