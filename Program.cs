@@ -14,12 +14,17 @@ builder.Services.AddHttpClient();
 
 // ------------------------------------ Daemon Configuration -------------------------------------------------
 {
-    builder.Services.AddHostedService<DaemonBackgroundService>();
     builder.Services.AddSingleton<IDaemonConfiguration>((_) => builder.Configuration
                             .AddJsonFile("daemon.json")
                             .Build()
                             .Get<DaemonConfiguration>() ?? throw new FileNotFoundException("Daemon config not found"));
 
+    builder.Services.AddHostedService<DaemonBackgroundService>();
+}
+
+// ----------------------------------- Context Configuration -------------------------------------------------
+{
+    // Window Service
     builder.Services.AddWindowsService(options =>
     {
         using (var prov = builder.Services.BuildServiceProvider())
@@ -29,6 +34,11 @@ builder.Services.AddHttpClient();
         }
     });
 
-    var host = builder.Build();
-    host.Run();
+    // Linux
+    builder.Services.AddSystemd();
+}
+
+using (var host = builder.Build())
+{
+    await host.RunAsync().ConfigureAwait(false);
 }
