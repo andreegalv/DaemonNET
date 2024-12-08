@@ -23,17 +23,14 @@
 
         public async ValueTask<bool> WaitForNextTickAsync(CancellationToken cancellationToken = default)
         {
+            ObjectDisposedException.ThrowIf(this._disposed, this);
+
             cancellationToken.ThrowIfCancellationRequested();
 
             PeriodicTimer timer;
 
             lock (this._cronExpression)
             {
-                if (this._disposed)
-                {
-                    return false;
-                }
-
                 if (this._activeTimer is not null)
                 {
                     throw new InvalidOperationException("One consumer at a time.");
